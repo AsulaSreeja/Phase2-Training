@@ -1,0 +1,61 @@
+class Node:
+    def __init__(self,data):# self refers to the instance of the class that is currently being used;
+        self.data=data
+        self.Next=None
+def printing(temp):
+    while temp!=None:
+      print(temp.data,end=" ")
+      temp= temp.Next
+#block creation is happening in below lines
+o1=Node(51)
+o2=Node(52)
+o3=Node(53)
+o4=Node(54)
+o5=Node(55)
+o6=Node(56)
+o7=Node(57)
+o8=Node(58)
+o9=Node(59)
+o10=Node(60)
+
+print(o1.data)
+print(o2.data)
+print(o3.data)
+print(o4.data)
+print(o5.data)
+print(o6.data)
+print(o7.data)
+print(o8.data)
+print(o9.data)
+print(o10.data)
+print()
+#establishing links between memory
+o1.Next=o2
+o2.Next=o3
+o3.Next=o4
+o4.Next=o5
+o5.Next=o6
+o6.Next=o7
+o7.Next=o8
+o8.Next=o9
+o9.Next=o10
+o10.Next=None
+
+print()
+print(o1.Next)
+print(o2.Next)
+print(o3.Next)
+print(o4.Next)
+print(o5.Next)
+print(o6.Next)
+print(o7.Next)
+print(o8.Next)
+print(o9.Next)
+print(o10.Next)
+print()
+print(o1.Next.data)
+print(o2.Next.Next.data)
+print()
+p=printing(o1)
+
+
