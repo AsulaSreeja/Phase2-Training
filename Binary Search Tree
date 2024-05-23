@@ -1,0 +1,88 @@
+"""
+Algorithm
+1. START
+2. If the tree is empty, insert the first element as the root node of the 
+   tree. The following elements are added as the leaf nodes.
+3. If an element is less than the root value, it is added into the left 
+   subtree as a leaf node.
+4. If an element is greater than the root value, it is added into the right 
+   subtree as a leaf node.
+5. The final leaf nodes of the tree point to NULL values as their 
+   child nodes.
+6. END"""
+
+class Node:
+   def __init__(self, data):
+      self.left = None
+      self.right = None
+      self.data = data
+
+# Insert method to create nodes
+   def insert(self, data):
+      if self.data:
+         if data < self.data:
+            if self.left is None:
+               self.left = Node(data)
+            else:
+               self.left.insert(data)
+         elif data > self.data:
+            if self.right is None:
+               self.right = Node(data)
+            else:
+               self.right.insert(data)
+         else:
+            self.data = data
+   def printTree(self, prefex):
+       if self is None:
+           return
+       self.left.printTree(prefex + "") if self.left else None
+       print(prefex + "--", str(self.data),"", end = "")
+       self.right.printTree(prefex + "") if self.right else None
+    # Print the tree
+   def Inorder(self):
+      if self.left:
+         self.left.Inorder()
+         print(self.data, "->", end = " ")
+      if self.right:
+         self.right.Inorder()
+    # Print the tree
+   def Preorder(self):
+      print(self.data, "->", end = "")
+      if self.left:
+         self.left.Preorder()
+      if self.right:
+         self.right.Preorder()
+    
+# Print the tree
+   def Postorder(self):
+      if self.left:
+         self.left.Postorder()
+      if self.right:
+         self.right.Postorder()
+      print(self.data, "->", end = "")
+root = Node(54)
+root.insert(34)
+root.insert(46)
+root.insert(12)
+root.insert(23)
+root.insert(5)
+print("Insertion Done")
+print("BST: ")
+root.printTree('')
+print("\nInorder Traversal")
+root.Inorder()
+print("\n Preorder Traversal")
+root.Preorder()
+print("\nPostorder Traversal")
+root.Postorder()
+
+#output
+"""Insertion Done
+BST:
+-- 5 -- 12 -- 23 -- 34 -- 46 -- 54
+Inorder Traversal
+12 -> 34 -> 54 ->
+ Preorder Traversal
+54 ->34 ->12 ->5 ->23 ->46 ->
+Postorder Traversal
+5 ->23 ->12 ->46 ->34 ->54 ->"""
